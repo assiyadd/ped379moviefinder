@@ -1,0 +1,16 @@
+{
+  "name": "secure-movie-finder",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "start": "node server.js",
+    "mock": "json-server --watch db.json --port 3001"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "json-server": "0.17.4"
+  }
+}

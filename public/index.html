@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Movie Finder</title>
+<style>
+  :root { --bg:#e9edf2; --ink:#16202e; --muted:#5b6778; --card:#fff; --line:#c9d1dc; --accent:#1d4ed8; --err:#b42318; --ok:#17663a; }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--ink); font-family:system-ui,sans-serif; line-height:1.5; padding:clamp(16px,4vw,48px); }
+  main { max-width:640px; margin:0 auto; }
+  h1 { font-family:Georgia,serif; font-size:clamp(2rem,6vw,3rem); margin:0 0 20px; }
+  .search { display:flex; gap:8px; }
+  input { flex:1; min-width:0; padding:12px 14px; font:inherit; border:1.5px solid var(--line); border-radius:6px; background:var(--card); }
+  button { font:inherit; font-weight:600; padding:12px 18px; border:0; border-radius:6px; background:var(--accent); color:#fff; cursor:pointer; }
+  button:disabled { opacity:.5; cursor:not-allowed; }
+  button.secondary { background:var(--ink); }
+  :focus-visible { outline:3px solid var(--accent); outline-offset:2px; }
+  #status { min-height:1.5em; margin:14px 0 0; color:var(--muted); }
+  #status.error { color:var(--err); } #status.ok { color:var(--ok); }
+  #result { margin-top:16px; background:var(--card); border:1.5px solid var(--line); border-radius:6px; }
+  #result[hidden] { display:none; }
+  .block { padding:16px 20px; border-bottom:1px solid var(--line); }
+  .block h2 { margin:0 0 4px; font-size:.9rem; font-weight:600; color:var(--muted); }
+  .block p { margin:0; }
+  #titleYear { font-family:Georgia,serif; font-size:1.5rem; }
+  .actions { padding:16px 20px; background:#f5f7fa; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Movie Finder</h1>
+  <div class="search">
+    <input id="titleInput" type="text" placeholder="Movie title, e.g. Inception" aria-label="Movie title">
+    <button id="searchBtn">Search Movie</button>
+  </div>
+  <p id="status" role="status"></p>
+
+  <section id="result" hidden>
+    <div class="block"><h2>Title and Year</h2><p id="titleYear"></p></div>
+    <div class="block"><h2>Rating</h2><p id="rating"></p></div>
+    <div class="block"><h2>Plot Description</h2><p id="plot"></p></div>
+    <div class="actions"><button id="watchBtn" class="secondary">Add to Watchlist</button></div>
+  </section>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
